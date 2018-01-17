@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package article;
+
+option java_multiple_files = true;
+option java_package = "io.github.caio.grpc";
+option java_outer_classname = "ArticleProto";
+
+// The greeting service definition.
+service Article {
+  // Sends a greeting
+  rpc post (ArticleRequest) returns (ArticleResponse) {}
+  rpc get (ShowAllRequest) returns (stream ShowAllResponse) {}
+}
+
+// The request message containing the user's name.
+message ArticleRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message ArticleResponse {
+  string message = 1;
+}
+
+message ShowAllRequest{
+  string message =2;
+}
+
+message ShowAllResponse{
+  string message =2;
+}
